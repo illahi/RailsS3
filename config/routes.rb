@@ -1,4 +1,10 @@
 Test0::Application.routes.draw do
+  resources :floorplans
+
+  resources :projects do
+    resources :floorplans
+  end
+
   resources :comments
 
   resources :posts do

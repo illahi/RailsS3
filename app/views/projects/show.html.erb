@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h2>Project Name:<%= @project.name %></h2>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
+
+<h3>Floorplans</h3>
+
+<% @project.floorplans.each do |c| %>
+  <p>
+  	<b><%=h c.display_name %></b><br />
+    <%= time_ago_in_words(c.created_at) %> ago <br />
+    <%= image_tag c.blueprint.url(:thumb) %>
+  </p>
+<% end %>
+
+<h4>Add New Floorplan</h4>
+
+<%= form_for [@project, Floorplan.new], :html => { :multipart => true } do |f| %>
+  <p>
+    <%= f.label :display_name, "Title (optional)" %><br />
+    <%= f.text_field :display_name %><br />
+    <%= f.label :blueprint %><br />
+    <%= f.file_field :blueprint %>
+  </p>
+
+  <p>
+    <%= f.submit "Add Floorplan" %>
+  </p>
+<% end %>

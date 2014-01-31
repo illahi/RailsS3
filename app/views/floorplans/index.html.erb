@@ -1,0 +1,29 @@
+<h1>Listing floorplans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Display name</th>
+      <th>Project</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @floorplans.each do |floorplan| %>
+      <tr>
+        <td><%= floorplan.display_name %></td>
+        <td><%= floorplan.project %></td>
+        <td><%= link_to 'Show', floorplan %></td>
+        <td><%= link_to 'Edit', edit_floorplan_path(floorplan) %></td>
+        <td><%= link_to 'Destroy', floorplan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Floorplan', new_floorplan_path %>

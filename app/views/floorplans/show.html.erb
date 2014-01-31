@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Display name:</strong>
+  <%= @floorplan.display_name %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @floorplan.project %>
+</p>
+
+<%= link_to 'Edit', edit_floorplan_path(@floorplan) %> |
+<%= link_to 'Back', floorplans_path %>
