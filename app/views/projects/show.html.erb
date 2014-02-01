@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
+
 <p>
   <h2>Project Name:<%= @project.name %></h2>
 </p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
 
 <h3>Floorplans</h3>
 
@@ -13,7 +13,10 @@
   <p>
   	<b><%=h c.display_name %></b><br />
     <%= time_ago_in_words(c.created_at) %> ago <br />
-    <%= image_tag c.blueprint.url(:thumb) %>
+    <script>var image="<%= c.blueprint.url(:original) %>";</script>
+    <%= image_tag c.blueprint.url(:thumb), :onclick => "show(image)" %>
+    <a href="<%= c.blueprint.url(:original) %>">Original</a>
+    <a href="<%= c.blueprint.url(:large) %>">Large</a>
   </p>
 <% end %>
 
