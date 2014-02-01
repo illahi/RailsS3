@@ -14,7 +14,7 @@
   	<b><%=h c.display_name %></b><br />
     <%= time_ago_in_words(c.created_at) %> ago <br />
     <script>var image="<%= c.blueprint.url(:original) %>";</script>
-    <%= image_tag c.blueprint.url(:thumb), :onclick => "show(image)" %>
+    <%= image_tag c.blueprint.url(:thumb) %>
     <a href="<%= c.blueprint.url(:original) %>">Original</a>
     <a href="<%= c.blueprint.url(:large) %>">Large</a>
   </p>
